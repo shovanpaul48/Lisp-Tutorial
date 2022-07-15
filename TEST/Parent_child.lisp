@@ -1,0 +1,156 @@
+;; In this programm we take list from user and find the parent and the predecesor of a node
+;; but here program only works with Integer Input Otherwise User have to enter the Character list
+;; in the programm
+
+
+(defun Enter_node()
+    (format t "Enter self node : ")
+    (setq  self (read))
+    (format t "Enter parent node : ")
+    (setq  parent (read))
+    (defparameter list2 ( list self parent  ))
+    (defparameter list1 ( append list1 list2))
+)
+
+(defun Parent ()
+    (format t "Enter the node : ")
+    (setq node (read ))
+    (terpri)
+    (setq f 0)
+    (loop for i from 0 to (- (list-length list1) 1) 
+        do(progn 
+            ( setq j (+ i 1)) 
+            (if ( = ( nth i list1 ) node )
+                (progn
+                    (if ())
+                    ( format t " ~d is the parent of node ~d" (nth j list1 ) node)
+                    ( setq f 1 )
+                    (terpri)
+                )
+            )
+            
+        )
+    )
+    (if (= f 0)
+        ( format t " No parent found for ~d " node)
+        (terpri)
+    )
+)
+
+;; In this function check weather a node is parent of another node 
+(defun isParent ()
+    (format t "Enter the self node : ")
+    (setq child (read ))
+    (terpri)
+    (format t "Enter the parent node : ")
+    (setq prime (read ) )
+    (terpri)
+    (format t "The child is : ~d and the parent is:  ~d" child prime)
+    (setq f 0)
+    (terpri)
+    (loop for i from 0 to (- (list-length list1) 1) 
+        do(progn
+            ;; (format t "the sub list is : ~d "  ( nth i list1 ))
+            ;; (defparameter list1 (cdr list1)) 
+            ( setq j (+ i 1))
+            (if (and  ( = ( nth i list1 ) child )  ( = ( nth j list1 ) prime ))
+                (progn
+                    
+                    ( format t " ~d is the parent of the ~d" prime child)
+                    ( setq f 1 )
+                    (terpri)
+                )
+            )  
+        )
+    )
+    (if (= f 0)
+        ( format t " ~d is the not parent of the ~d" prime child)
+        (terpri)
+    )
+
+)
+
+;;  In this function Enter the Self node and get the predecesor of that node 
+
+
+(defun isPredecesor () 
+    (terpri)
+    (format t "Enter the self node : ")
+    (setq child (read ))
+    (terpri)
+    (setq f 0)
+    (setq m 0)
+    (loop for i from 0 to (- (list-length list1) 1) 
+        do(progn
+            (if  ( = ( nth i list1 ) child )
+                (progn
+                    ;; (setq m (+ i 1))
+                    (setq parent  (nth (+ i 1) list1))
+                    (setq f 1)
+                    (loop for j from 0 to (- (list-length list1) 1) 
+                        do(progn
+                            ;; (setq k (+ j 1))
+                            (if (  = ( nth j list1 ) parent )
+                                (progn
+                                    (setq pred (nth (+ j 1) list1))
+                                    ;; (format t " ~d  ~d" parent pred)
+                                    (terpri)
+                                    (format t " ~d is the predecesor of the ~d" pred child)
+                                    (terpri)
+                                    (setq m 1) 
+                                )
+                            )
+                            ( setq j (+ j 1))
+                        )
+                    )
+                )
+            )
+            ( setq i (+ i 1))
+        )
+    )
+    (if (= f 0)
+        ( format t " the child ~d is not found " child)
+    )
+    (if (= m 0)
+        ( format t " Predecesor not found " )
+    )
+)
+
+(defun findMinMax ()
+    (setq min 999999999)
+    (setq max -999999999)
+
+    (loop for i from 0 to ( - (list-length list1 ) 1)
+        do(progn
+            (if (> (nth i list1 ) max )
+                (setq max (nth i list1 ) )
+            )
+            ( if (< (nth i list1 ) findMinMax )
+                (setq min (nth i list1 ) )
+            )
+        )
+    )
+    (format t "The max node is ~d and min node is ~d " max min)
+    (terpri)
+)
+
+(format  t "Enter how many relation you want to enter : ")
+(defvar lim (read))
+(defparameter list1 (list ))
+
+(loop for i from 0 to (- lim 1)
+    do(progn
+        (terpri)
+        ( Enter_node )
+    )
+)
+;; ( isParent )
+(format t "the list is : ~d " list1 )
+(terpri)
+(format t "the list length is : ~d " (list-length list1) )
+(terpri)
+
+(Parent)
+(isParent)
+(isPredecesor)
+(findMinMax)

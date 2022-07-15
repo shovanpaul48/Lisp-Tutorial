@@ -1,0 +1,21 @@
+;; LISP Programming
+
+;; 1. Add, subtract, multiply, divide two numbers.
+;; 2. Find the remainder on dividing one number by another, increase the first number by 10 and
+;; decrement the second by 5.
+;; 3. Find out the area and perimeter of a rectangle.
+;; 4. Input three decimal numbers and find their sum and average.
+;; 5. Input two numbers and swap them without third variable.
+;; 6. Input temperature in Celsius and convert it to Fahrenheit.
+;; 7. Input a number and check whether it is odd or even and display accordingly.
+;; 8. Find the largest and smallest among three numbers supplied by user.
+;; 9. Check whether an input year is a leap year or not.
+;; 10. Compute the telephone bill for Mr. X as per the call rates given below:
+;; 1st 100 calls @Rs. 0.2
+;; Next 100 calls @ Rs. 0.3
+;; Remaining calls @ Rs. 0.5
+;; 11. Solve a given quadratic equation. Check whether its roots are real or imaginary.
+;; 12. Input a number and find the sum of its digits.
+;; 13. Find the sum of the first 100 even integers.
+;; 14. Input a number and check whether it is an automorphic number.
+;; 15. Input a number and check whether it is an armstrong number.
